@@ -1,38 +1,56 @@
-
-
-import React, { useEffect, useState } from "react";
-
+import React, {
+  useEffect,
+  useState,
+} from "react";
 
 import "./Hero.css";
-
 
 import candleImage from "../images/candleTwo.png";
 
 const Hero = () => {
 
   /* =======================================================
-     MOUSE GLOW EFFECT
+     MOUSE GLOW
   ======================================================= */
   const [position, setPosition] = useState({
-    x: 0,
-    y: 0,
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2,
   });
 
   useEffect(() => {
 
+    let animationFrame;
+
     const moveGlow = (e) => {
 
-      setPosition({
-        x: e.clientX,
-        y: e.clientY,
-      });
+      cancelAnimationFrame(animationFrame);
+
+      animationFrame =
+        requestAnimationFrame(() => {
+
+          setPosition({
+            x: e.clientX,
+            y: e.clientY,
+          });
+
+        });
 
     };
 
-    window.addEventListener("mousemove", moveGlow);
+    window.addEventListener(
+      "mousemove",
+      moveGlow
+    );
 
     return () => {
-      window.removeEventListener("mousemove", moveGlow);
+
+      window.removeEventListener(
+        "mousemove",
+        moveGlow
+      );
+
+      cancelAnimationFrame(animationFrame);
+
     };
 
   }, []);
@@ -57,18 +75,30 @@ const Hero = () => {
         ></div>
 
         {/* ===================================================
-            BACKGROUND PARTICLES
+            PARTICLES
         =================================================== */}
         <div className="particles">
 
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+          <span className="p1"></span>
+          <span className="p2"></span>
+          <span className="p3"></span>
+          <span className="p4"></span>
+          <span className="p5"></span>
+          <span className="p6"></span>
+          <span className="p7"></span>
+          <span className="p8"></span>
+          <span className="p9"></span>
+          <span className="p10"></span>
+          <span className="p11"></span>
+          <span className="p12"></span>
+          <span className="p13"></span>
+          <span className="p14"></span>
+          <span className="p15"></span>
+          <span className="p16"></span>
+          <span className="p17"></span>
+          <span className="p18"></span>
+          <span className="p19"></span>
+          <span className="p20"></span>
 
         </div>
 
@@ -77,13 +107,12 @@ const Hero = () => {
         =================================================== */}
         <div className="hero-content">
 
-          {/* TOP TEXT */}
           <p className="hero-subtitle">
             EMBER & WAX
           </p>
 
           {/* =================================================
-              CANDLE WRAPPER
+              CANDLE
           ================================================= */}
           <div className="candle-wrapper">
 
@@ -94,9 +123,6 @@ const Hero = () => {
 
             <div className="smoke smoke-3"></div>
 
-            {/* FLAME */}
-            <div className="flame"></div>
-
             {/* CANDLE IMAGE */}
             <img
               src={candleImage}
@@ -106,12 +132,12 @@ const Hero = () => {
 
           </div>
 
-          {/* HERO TITLE */}
+          {/* TITLE */}
           <h1 className="hero-title glow-text">
             Light the dark.
           </h1>
 
-          {/* SCROLL TEXT */}
+          {/* SCROLL */}
           <p className="scroll-text">
             SCROLL TO DISCOVER
           </p>

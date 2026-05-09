@@ -15,10 +15,10 @@
 
     background:
     radial-gradient(circle at center,
-    rgba(120,55,10,0.20),
+    rgba(120,55,10,0.18),
     rgba(15,7,3,1) 60%);
 
-    padding-top: 100px;
+    padding-top: 70px;
 }
 
 /* =========================================================
@@ -29,45 +29,64 @@
 
     position: absolute;
 
-    width: 900px;
-    height: 900px;
+    width: 150px;
+    height: 150px;
 
     background:
     radial-gradient(circle,
-    rgba(255,120,0,0.12),
+    rgba(255,120,0,0.10),
     transparent 70%);
 
-    top: 50%;
+    top: 55%;
     left: 50%;
 
     transform: translate(-50%,-50%);
 
     z-index: 1;
+
+    animation:
+    ambientGlow 10s ease-in-out infinite;
 }
+
 
 /* =========================================================
    MOUSE GLOW
 ========================================================= */
 .mouse-glow{
-    width: 350px;
-    height: 350px;
+    width: 380px;
+    height: 380px;
 
     position: fixed;
 
+    top: 0;
+    left: 0;
+
     transform: translate(-50%,-50%);
+
+    border-radius: 50%;
 
     background:
     radial-gradient(circle,
-    rgba(214,161,93,0.10),
-    transparent 70%);
+    rgba(214,161,93,0.22),
+    rgba(214,161,93,0.12) 35%,
+    rgba(214,161,93,0.04) 55%,
+    transparent 72%);
 
     pointer-events: none;
 
-    z-index: 1;
+    z-index: 2;
 
-    transition: 0.08s linear;
+    mix-blend-mode: screen;
+
+    filter: blur(25px);
+
+    opacity: 0.9;
+
+    will-change: transform;
+
+    transition:
+    transform 0.03s linear;
 }
-
 /* =========================================================
    HERO CONTENT
 ========================================================= */
@@ -78,7 +97,7 @@
 
     text-align: center;
 
-    padding: 40px 20px;
+    padding: 20px;
 }
 
 /* =========================================================
@@ -89,13 +108,14 @@
 
     letter-spacing: 8px;
 
-    font-size: 13px;
+    font-size: 12px;
 
-    margin-bottom: 70px;
+    margin-bottom: 18px;
 
-    opacity: 0;
+    opacity: 0.85;
 
-    animation: reveal 1.5s forwards;
+    animation:
+    reveal 1.5s forwards;
 }
 
 /* =========================================================
@@ -112,19 +132,45 @@
     align-items: center;
     justify-content: center;
 
-    transform-style: preserve-3d;
+    perspective: 1200px;
 
-    margin-bottom: 20px;
+    margin-bottom: -15px;
 
     animation:
-    floatingCandle 7s ease-in-out infinite;
+    floatingCandle 5s ease-in-out infinite;
+}
+
+/* =========================================================
+   GLOW RING
+========================================================= */
+.candle-wrapper::before{
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,140,40,0.18),
+    transparent 72%);
+
+    z-index: 1;
+
+    filter: blur(20px);
+
+    animation:
+    glowPulse 5s ease-in-out infinite;
 }
 
 /* =========================================================
    CANDLE IMAGE
 ========================================================= */
 .candle-image{
-    width: 280px;
+    width: 185px;
 
     position: relative;
 
@@ -133,24 +179,23 @@
     object-fit: contain;
 
     animation:
-    candleReveal 2s ease forwards,
-    candleBounce 5s ease-in-out infinite;
+    candleReveal 1.5s ease forwards,
+    candleFloat 5s ease-in-out infinite;
 
     filter:
-    drop-shadow(0 0 35px rgba(255,180,70,0.35))
-    drop-shadow(0 0 80px rgba(255,120,0,0.22))
-    drop-shadow(0 0 140px rgba(255,90,0,0.10));
+    drop-shadow(0 0 30px rgba(255,180,70,0.30))
+    drop-shadow(0 0 70px rgba(255,120,0,0.18));
 }
 
 /* =========================================================
    HERO TITLE
 ========================================================= */
 .hero-title{
-    font-size: 140px;
+    font-size: 135px;
 
-    line-height: 1;
+    line-height: 0.95;
 
-    margin-top: 20px;
+    margin-top: -5px;
 
     color: var(--foreground);
 
@@ -163,26 +208,27 @@
     animation:
     reveal 2s cubic-bezier(.16,1,.3,1) forwards;
 
-    animation-delay: 0.5s;
+    animation-delay: 0.3s;
 
     text-shadow:
-    0 0 30px rgba(255,180,90,0.35),
-    0 0 80px rgba(255,120,0,0.14);
+    0 0 25px rgba(255,180,90,0.22),
+    0 0 70px rgba(255,120,0,0.10);
 }
 
 /* =========================================================
    SCROLL TEXT
 ========================================================= */
 .scroll-text{
-    margin-top: 25px;
+    margin-top: 8px;
 
     font-size: 13px;
 
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 
     color: rgba(255,255,255,0.55);
 
-    animation: pulseText 2s infinite;
+    animation:
+    pulseText 2s infinite;
 }
 
 /* =========================================================
@@ -191,25 +237,27 @@
 .smoke{
     position: absolute;
 
-    left: 64%;
+    left: 52%;
 
-    top: 18px;
+    top: -70px;
 
-    width: 55px;
-    height: 180px;
+    width: 45px;
+    height: 150px;
 
     border-radius: 50%;
 
     filter: blur(14px);
 
     background:
-    radial-gradient(#f6f5f3, transparent 50%);
+    radial-gradient(#e1ddd780, transparent 70%);
 
     opacity: 0;
 
     z-index: 3;
 
     transform-origin: center bottom;
+
+    mix-blend-mode: screen;
 }
 
 .smoke-1{
@@ -229,61 +277,76 @@
 /* =========================================================
    PARTICLES
 ========================================================= */
+/* =========================================================
+   PARTICLES
+========================================================= */
 .particles span{
     position: absolute;
 
-    width: 4px;
-    height: 4px;
+    bottom: -250px;
 
     border-radius: 50%;
 
-    background: rgba(255,180,70,0.65);
+    background: rgba(255,180,70,0.7);
 
     box-shadow:
-    0 0 10px rgba(255,180,70,0.7);
+    0 0 12px rgba(255,180,70,0.9);
 
-    animation: floatParticle 8s linear infinite;
+    animation-name: floatParticle;
+
+    animation-timing-function: linear;
+
+    animation-iteration-count: infinite;
+
+    will-change: transform, opacity;
+}/* =========================================================
+   PARTICLE SIZES
+========================================================= */
+
+.p1,.p5,.p9,.p13,.p17{
+    width: 2px;
+    height: 2px;
 }
 
-.particles span:nth-child(1){
-    top: 10%;
-    left: 8%;
+.p2,.p6,.p10,.p14,.p18{
+    width: 3px;
+    height: 3px;
 }
 
-.particles span:nth-child(2){
-    top: 30%;
-    left: 20%;
+.p3,.p7,.p11,.p15,.p19{
+    width: 4px;
+    height: 4px;
 }
 
-.particles span:nth-child(3){
-    top: 70%;
-    left: 15%;
+.p4,.p8,.p12,.p16,.p20{
+    width: 5px;
+    height: 5px;
 }
 
-.particles span:nth-child(4){
-    top: 15%;
-    right: 18%;
-}
+/* =========================================================
+   RANDOM START POSITIONS
+========================================================= */
 
-.particles span:nth-child(5){
-    top: 55%;
-    right: 12%;
-}
-
-.particles span:nth-child(6){
-    top: 80%;
-    right: 25%;
-}
-
-.particles span:nth-child(7){
-    top: 40%;
-    left: 50%;
-}
-
-.particles span:nth-child(8){
-    top: 85%;
-    left: 48%;
-}
+.p1{left:5%;animation-duration:14s;animation-delay:0s;}
+.p2{left:12%;animation-duration:18s;animation-delay:2s;}
+.p3{left:20%;animation-duration:16s;animation-delay:4s;}
+.p4{left:28%;animation-duration:20s;animation-delay:1s;}
+.p5{left:35%;animation-duration:15s;animation-delay:3s;}
+.p6{left:42%;animation-duration:22s;animation-delay:5s;}
+.p7{left:50%;animation-duration:17s;animation-delay:2s;}
+.p8{left:58%;animation-duration:19s;animation-delay:6s;}
+.p9{left:65%;animation-duration:13s;animation-delay:1s;}
+.p10{left:72%;animation-duration:21s;animation-delay:4s;}
+.p11{left:78%;animation-duration:16s;animation-delay:3s;}
+.p12{left:84%;animation-duration:23s;animation-delay:5s;}
+.p13{left:90%;animation-duration:15s;animation-delay:0s;}
+.p14{left:95%;animation-duration:18s;animation-delay:6s;}
+.p15{left:8%;animation-duration:20s;animation-delay:7s;}
+.p16{left:26%;animation-duration:17s;animation-delay:3s;}
+.p17{left:44%;animation-duration:14s;animation-delay:1s;}
+.p18{left:62%;animation-duration:22s;animation-delay:4s;}
+.p19{left:80%;animation-duration:18s;animation-delay:2s;}
+.p20{left:92%;animation-duration:24s;animation-delay:5s;}
 
 /* =========================================================
    ANIMATIONS
@@ -293,15 +356,13 @@
 
     from{
         opacity: 0;
-
         transform:
-        translateY(80px)
-        scale(0.92);
+        translateY(50px)
+        scale(0.95);
     }
 
     to{
         opacity: 1;
-
         transform:
         translateY(0)
         scale(1);
@@ -313,62 +374,76 @@
 
     from{
         opacity: 0;
-        transform: scale(0.8);
+        transform:
+        scale(0.8)
+        translateY(30px);
     }
 
     to{
         opacity: 1;
+        transform:
+        scale(1)
+        translateY(0);
+    }
+
+}
+
+@keyframes candleFloat{
+
+    0%{
+        transform:
+        translateY(0px);
+    }
+
+    50%{
+        transform:
+        translateY(-12px);
+    }
+
+    100%{
+        transform:
+        translateY(0px);
+    }
+
+}
+
+@keyframes glowPulse{
+
+    0%{
+        opacity: 0.35;
+        transform: scale(1);
+    }
+
+    50%{
+        opacity: 0.55;
+        transform: scale(1.06);
+    }
+
+    100%{
+        opacity: 0.35;
         transform: scale(1);
     }
 
 }
 
-@keyframes floatingCandle{
+@keyframes ambientGlow{
 
     0%{
         transform:
-        translateY(0px)
-        rotate(0deg);
-    }
-
-    25%{
-        transform:
-        translateY(-10px)
-        rotate(-1deg);
+        translate(-50%,-50%)
+        scale(1);
     }
 
     50%{
         transform:
-        translateY(-18px)
-        rotate(1deg);
-    }
-
-    75%{
-        transform:
-        translateY(-10px)
-        rotate(-1deg);
+        translate(-50%,-50%)
+        scale(1.04);
     }
 
     100%{
         transform:
-        translateY(0px)
-        rotate(0deg);
-    }
-
-}
-
-@keyframes candleBounce{
-
-    0%{
-        transform: scale(1);
-    }
-
-    50%{
-        transform: scale(1.03);
-    }
-
-    100%{
-        transform: scale(1);
+        translate(-50%,-50%)
+        scale(1);
     }
 
 }
@@ -381,16 +456,11 @@
         transform:
         translateX(-50%)
         translateY(0px)
-        scale(0.8)
-        rotate(0deg);
+        scale(0.7);
     }
 
     15%{
-        opacity: 0.18;
-    }
-
-    50%{
-        opacity: 0.12;
+        opacity: 0.15;
     }
 
     100%{
@@ -398,9 +468,9 @@
 
         transform:
         translateX(-90%)
-        translateY(-260px)
-        scale(2.8)
-        rotate(12deg);
+        translateY(-220px)
+        scale(2.4)
+        rotate(10deg);
     }
 
 }
@@ -408,7 +478,7 @@
 @keyframes pulseText{
 
     0%{
-        opacity: 0.4;
+        opacity: 0.45;
     }
 
     50%{
@@ -416,30 +486,56 @@
     }
 
     100%{
-        opacity: 0.4;
+        opacity: 0.45;
     }
 
-}
-
-@keyframes floatParticle{
+}@keyframes floatParticle{
 
     0%{
-        transform: translateY(0px);
-        opacity: 0.2;
+        transform:
+        translate3d(0px, 0px, 0px)
+        scale(0.4);
+
+        opacity: 0;
+    }
+
+    10%{
+        opacity: 0.4;
+    }
+
+    25%{
+        transform:
+        translate3d(15px, -180px, 0px)
+        scale(1);
+
+        opacity: 0.8;
     }
 
     50%{
-        transform: translateY(-20px);
+        transform:
+        translate3d(-20px, -420px, 0px)
+        scale(1.2);
+
         opacity: 1;
     }
 
+    75%{
+        transform:
+        translate3d(18px, -700px, 0px)
+        scale(0.9);
+
+        opacity: 0.6;
+    }
+
     100%{
-        transform: translateY(0px);
-        opacity: 0.2;
+        transform:
+        translate3d(-10px, -1000px, 0px)
+        scale(0.3);
+
+        opacity: 0;
     }
 
 }
-
 /* =========================================================
    RESPONSIVE
 ========================================================= */
@@ -447,7 +543,7 @@
 @media(max-width:1200px){
 
     .hero-title{
-        font-size: 110px;
+        font-size: 105px;
     }
 
 }
@@ -459,7 +555,7 @@
     }
 
     .candle-image{
-        width: 230px;
+        width: 160px;
     }
 
 }
@@ -472,7 +568,7 @@
 
     .hero-subtitle{
         font-size: 11px;
-        letter-spacing: 5px;
+        letter-spacing: 4px;
     }
 
     .scroll-text{
@@ -480,7 +576,7 @@
     }
 
     .candle-image{
-        width: 190px;
+        width: 135px;
     }
 
 }
