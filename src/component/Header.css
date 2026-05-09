@@ -1,0 +1,413 @@
+/* =========================================================
+   FILE: src/component/jsx/Header.css
+   ========================================================= */
+
+/* =========================================================
+   HEADER
+========================================================= */
+.header{
+    width: 100%;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    z-index: 999;
+
+    background: rgba(15,7,3,0.82);
+
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid var(--border-color);
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,0.45);
+}
+
+/* =========================================================
+   HEADER INNER
+========================================================= */
+.header-inner{
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+.logo-wrapper{
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.logo-circle{
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--glow);
+
+    color: #000;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    box-shadow:
+    0 0 30px var(--glow-soft);
+}
+
+.logo-text{
+    color: var(--foreground);
+
+    font-size: 70px;
+
+    font-family: var(--heading-font);
+
+    font-weight: 600;
+
+    line-height: 1;
+}
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+.desktop-nav{
+    display: flex;
+    align-items: center;
+
+    gap: 45px;
+}
+
+.desktop-nav a{
+    color: rgba(255,255,255,0.75);
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    transition: var(--transition);
+
+    position: relative;
+}
+
+.desktop-nav a:hover{
+    color: var(--glow);
+
+    text-shadow:
+    0 0 15px var(--glow-soft);
+
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   HEADER RIGHT
+========================================================= */
+.header-right{
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+/* =========================================================
+   SEARCH BOX
+========================================================= */
+.search-box{
+    position: relative;
+}
+
+.search-box input{
+    width: 300px;
+    height: 48px;
+
+    border-radius: 50px;
+
+    border: 1px solid var(--border-color);
+
+    background: rgba(255,255,255,0.03);
+
+    backdrop-filter: blur(10px);
+
+    padding-left: 48px;
+    padding-right: 20px;
+
+    color: var(--foreground);
+
+    outline: none;
+
+    transition: var(--transition);
+}
+
+.search-box input::placeholder{
+    color: rgba(255,255,255,0.45);
+}
+
+.search-box input:focus{
+    border-color: var(--glow);
+
+    box-shadow:
+    0 0 20px var(--glow-soft);
+}
+
+.search-icon{
+    position: absolute;
+
+    left: 16px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: rgba(255,255,255,0.5);
+}
+
+/* =========================================================
+   ICON BUTTONS
+========================================================= */
+.icon-btn{
+    position: relative;
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+.icon-btn:hover{
+    color: var(--glow);
+
+    transform: translateY(-2px);
+
+    text-shadow:
+    0 0 12px var(--glow-soft);
+}
+
+/* =========================================================
+   BADGE
+========================================================= */
+.badge{
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    position: absolute;
+
+    top: -8px;
+    right: -8px;
+
+    background: var(--glow);
+
+    color: black;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================================================
+   PROFILE BUTTON
+========================================================= */
+.profile-btn{
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--border-color);
+
+    background: rgba(255,255,255,0.04);
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+.profile-btn:hover{
+    border-color: var(--glow);
+
+    box-shadow:
+    0 0 20px var(--glow-soft);
+}
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+.mobile-menu-btn{
+    display: none;
+
+    background: transparent;
+    border: none;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+.mobile-menu{
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition: 0.5s;
+
+    background: rgba(15,7,3,0.96);
+}
+
+.show-menu{
+    max-height: 600px;
+
+    opacity: 1;
+}
+
+/* =========================================================
+   MOBILE SEARCH
+========================================================= */
+.mobile-search{
+    position: relative;
+
+    padding: 20px;
+}
+
+.mobile-search input{
+    width: 100%;
+    height: 50px;
+
+    border-radius: 50px;
+
+    border: 1px solid var(--border-color);
+
+    background: rgba(255,255,255,0.04);
+
+    padding-left: 45px;
+    padding-right: 20px;
+
+    color: white;
+
+    outline: none;
+}
+
+/* =========================================================
+   MOBILE NAV
+========================================================= */
+.mobile-nav{
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+
+    padding: 0 20px 25px;
+}
+
+.mobile-nav a{
+    color: rgba(255,255,255,0.75);
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+}
+
+/* =========================================================
+   MOBILE ICONS
+========================================================= */
+.mobile-icons{
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 0 20px 30px;
+
+    color: white;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+/* LAPTOP */
+@media(max-width:1200px){
+
+    .search-box input{
+        width: 220px;
+    }
+
+    .logo-text{
+        font-size: 58px;
+    }
+
+}
+
+/* TABLET */
+@media(max-width:991px){
+
+    .desktop-nav{
+        display: none;
+    }
+
+    .header-right{
+        display: none;
+    }
+
+    .mobile-menu-btn{
+        display: block;
+    }
+
+}
+
+/* MOBILE */
+@media(max-width:576px){
+
+    .header-inner{
+        height: 80px;
+    }
+
+    .logo-text{
+        font-size: 42px;
+    }
+
+    .logo-circle{
+        width: 40px;
+        height: 40px;
+
+        font-size: 16px;
+    }
+
+}
