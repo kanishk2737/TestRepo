@@ -1,0 +1,500 @@
+.cinematic-section{
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(120,55,10,0.10),
+    #0F0703 60%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+}
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
+.cinematic-bg-glow{
+    position: absolute;
+
+    width: 1000px;
+    height: 1000px;
+
+    border-radius: 50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,120,0,0.14),
+    transparent 70%);
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%,-50%);
+
+    filter: blur(40px);
+
+    animation:
+    cinematicGlow 10s ease-in-out infinite;
+}
+
+
+
+/* =========================================================
+   TOP CONTENT
+========================================================= */
+.cinematic-top-content{
+    position: relative;
+
+    z-index: 5;
+
+    text-align: center;
+
+    margin-bottom: 70px;
+}
+
+.cinematic-subtitle{
+    color: var(--glow);
+
+    font-size: 13px;
+
+    letter-spacing: 6px;
+
+    margin-bottom: 18px;
+}
+
+.cinematic-title{
+    font-size: 95px;
+
+    line-height: 1;
+
+    color: var(--foreground);
+
+    font-family: var(--heading-font);
+
+    font-weight: 600;
+
+    margin-bottom: 24px;
+}
+
+.cinematic-description{
+    max-width: 720px;
+
+    margin: auto;
+
+    color: rgba(255,255,255,0.62);
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+
+
+/* =========================================================
+   VIDEO CONTAINER
+========================================================= */
+.video-container{
+    position: relative;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    z-index: 5;
+
+    background: transparent;
+
+    transform-style: preserve-3d;
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+.showcase-video{
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: scale(1.08);
+
+    filter:
+    brightness(0.82)
+    contrast(1.08)
+    saturate(1.15);
+
+    transition:
+    transform 1.2s ease;
+}
+
+.video-container:hover .showcase-video{
+    transform:
+    scale(1.12);
+}
+.video-container:hover .showcase-video{
+    transform:
+    scale(1.08);
+}
+
+/* =========================================================
+   VIDEO OVERLAY
+========================================================= */
+.video-overlay{
+    position: absolute;
+
+    inset: 0;
+
+    background:
+    linear-gradient(
+    to bottom,
+    rgba(15,7,3,0.25),
+    rgba(15,7,3,0.08),
+    rgba(15,7,3,0.45));
+
+    pointer-events: none;
+}
+/* =========================================================
+   VIDEO GLOW
+========================================================= */
+.video-glow{
+    position: absolute;
+
+    width: 900px;
+    height: 900px;
+
+    border-radius: 50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,140,0,0.18),
+    transparent 70%);
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%,-50%);
+
+    z-index: 2;
+
+    filter: blur(50px);
+
+    animation:
+    glowPulse 6s ease-in-out infinite;
+}
+/* =========================================================
+   FLOATING LIGHT
+========================================================= */
+.floating-light{
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,180,70,0.22),
+    transparent 72%);
+
+    z-index: 3;
+
+    top: 40%;
+    left: 45%;
+
+    pointer-events: none;
+
+    filter: blur(22px);
+
+    transition:
+    transform 0.12s linear;
+}
+
+/* =========================================================
+   BOTTOM TEXT
+========================================================= */
+.cinematic-bottom-text{
+    margin-top: 35px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: rgba(255,255,255,0.55);
+
+    letter-spacing: 3px;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+}
+
+.cinematic-bottom-text span{
+    width: 60px;
+    height: 1px;
+
+    background:
+    rgba(255,255,255,0.25);
+}
+
+/* =========================================================
+   BOTTOM TEXT
+========================================================= */
+.cinematic-bottom-text{
+    margin-top: 35px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: rgba(255,255,255,0.55);
+
+    letter-spacing: 3px;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+}
+
+.cinematic-bottom-text span{
+    width: 60px;
+    height: 1px;
+
+    background:
+    rgba(255,255,255,0.25);
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+@keyframes cinematicGlow{
+
+    0%{
+        transform:
+        translate(-50%,-50%)
+        scale(1);
+    }
+
+    50%{
+        transform:
+        translate(-50%,-50%)
+        scale(1.08);
+    }
+
+    100%{
+        transform:
+        translate(-50%,-50%)
+        scale(1);
+    }
+
+}
+
+@keyframes glowPulse{
+
+    0%{
+        opacity: 0.4;
+        transform:
+        translate(-50%,-50%)
+        scale(1);
+    }
+
+    50%{
+        opacity: 0.7;
+        transform:
+        translate(-50%,-50%)
+        scale(1.12);
+    }
+
+    100%{
+        opacity: 0.4;
+        transform:
+        translate(-50%,-50%)
+        scale(1);
+    }
+
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1400px){
+
+    .cinematic-title{
+        font-size: 82px;
+    }
+
+    .video-container{
+        height: 90vh;
+    }
+
+}
+
+@media(max-width:1200px){
+
+    .cinematic-title{
+        font-size: 72px;
+    }
+
+    .cinematic-description{
+        font-size: 16px;
+    }
+
+    .video-container{
+        height: 82vh;
+    }
+
+    .floating-light{
+        width: 180px;
+        height: 180px;
+    }
+
+}
+
+@media(max-width:992px){
+
+    .cinematic-section{
+        min-height: auto;
+    }
+
+    .cinematic-title{
+        font-size: 62px;
+    }
+
+    .cinematic-description{
+        max-width: 620px;
+    }
+
+    .video-container{
+        height: 75vh;
+    }
+
+    .video-glow{
+        width: 700px;
+        height: 700px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .cinematic-section{
+        padding-top: 80px;
+    }
+
+    .cinematic-top-content{
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+
+    .cinematic-title{
+        font-size: 52px;
+    }
+
+    .cinematic-description{
+        font-size: 15px;
+
+        line-height: 1.8;
+    }
+
+    .video-container{
+        height: 70vh;
+    }
+
+    .floating-light{
+        width: 140px;
+        height: 140px;
+    }
+
+    .cinematic-bottom-text{
+        margin-top: 22px;
+
+        font-size: 11px;
+
+        letter-spacing: 2px;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .cinematic-section{
+        padding-top: 60px;
+    }
+
+    .cinematic-title{
+        font-size: 42px;
+
+        line-height: 1.1;
+    }
+
+    .cinematic-subtitle{
+        letter-spacing: 4px;
+
+        font-size: 11px;
+    }
+
+    .cinematic-description{
+        font-size: 14px;
+
+        line-height: 1.7;
+
+        padding: 0 12px;
+    }
+
+    .video-container{
+        height: 55vh;
+    }
+
+    .video-glow{
+        width: 500px;
+        height: 500px;
+    }
+
+    .floating-light{
+        width: 110px;
+        height: 110px;
+    }
+
+    .cinematic-bottom-text{
+        font-size: 10px;
+
+        gap: 8px;
+    }
+
+    .cinematic-bottom-text span{
+        width: 40px;
+    }
+
+}
+
+@media(max-width:400px){
+
+    .cinematic-title{
+        font-size: 34px;
+    }
+
+    .cinematic-description{
+        font-size: 13px;
+    }
+
+    .video-container{
+        height: 48vh;
+    }
+
+}
